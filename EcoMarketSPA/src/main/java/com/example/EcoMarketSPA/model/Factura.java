@@ -7,5 +7,6 @@ public class Factura {
     private String folio;
     private String timbre_electronico;
     private String razon_social;
-    private String 
+    private String numrun_cliente;
+    
 }
