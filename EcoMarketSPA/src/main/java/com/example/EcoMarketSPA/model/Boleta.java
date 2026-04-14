@@ -1,5 +1,7 @@
 package com.example.EcoMarketSPA.model;
 
+import java.sql.Date;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -17,17 +19,17 @@ import lombok.NoArgsConstructor;
 public class Boleta {
     @Id
     private int id_boleta;
-      @Column(name="id_venta", nullable =false)
+    @Column(name="id_venta", nullable =false)
     private int id_venta;
     @Column(name="folio", nullable =false)
     private String folio;
     @Column(name="timbre_electronico", nullable =false)
     private String timbre_electronico;
-      @Column(name="nombre_receptor", nullable =false)
+    @Column(name="nombre_receptor", nullable =false)
     private String nombre_receptor;
     @Column(name="rut_receptor", nullable =false)
     private String rut_receptor;
-    private String fecha_emision;
+    private Date fecha_emision;
     private int monto_neto;
     private int monto_iva;
     private int monto_total;
