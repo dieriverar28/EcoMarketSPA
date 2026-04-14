@@ -1,5 +1,6 @@
 package com.example.EcoMarketSPA.model;
 
+import java.sql.Date;
 
 public class Factura {
     private int id_factura;//pk
