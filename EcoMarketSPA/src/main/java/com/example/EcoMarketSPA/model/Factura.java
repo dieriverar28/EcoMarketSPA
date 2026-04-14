@@ -12,5 +12,8 @@ public class Factura {
     private String dvrun_cliente;
     private String giro;
     private Date fecha_emision;
+    private int monto_iva;
+    private int monto_total;
+    private String email_envio;
 
 }
