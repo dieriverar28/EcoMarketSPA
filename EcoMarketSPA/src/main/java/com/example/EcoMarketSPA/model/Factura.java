@@ -3,10 +3,13 @@ package com.example.EcoMarketSPA.model;
 
 public class Factura {
     private int id_factura;//pk
-    private id_venta;//fk
+    private int id_venta;//fk
     private String folio;
     private String timbre_electronico;
     private String razon_social;
     private String numrun_cliente;
-    
+    private String dvrun_cliente;
+    private String giro;
+    private Date fecha_emision;
+
 }
