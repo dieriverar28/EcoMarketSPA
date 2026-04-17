@@ -6,7 +6,7 @@ public class GeneroService {
     private GeneroService GeneroRepository;
     //obtener todo
     public List<Genero> getGenero(){
-        return GeneroRepository.obtenergenero();
+        return GeneroRepository.obtenergenero(id_genero);
     }
     //buscar x id_genero
     public Genero getGenero(){
