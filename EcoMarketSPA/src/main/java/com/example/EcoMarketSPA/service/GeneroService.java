@@ -9,7 +9,7 @@ public class GeneroService {
         return GeneroRepository.obtenergenero(id_genero);
     }
     //buscar x id_genero
-    public Genero getGenero(){
+    public Genero getGenero(int id_genero){
         return GeneroRepository.buscarGenero(id_genero);
     }
     //eliminar x id_gemero
@@ -31,4 +31,3 @@ public class GeneroService {
 
 
 }
-s
