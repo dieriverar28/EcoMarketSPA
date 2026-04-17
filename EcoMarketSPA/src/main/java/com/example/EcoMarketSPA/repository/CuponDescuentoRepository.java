@@ -29,7 +29,7 @@ public class CuponDescuentoRepository {
     }
 
     // ELIMINAR POR ID
-    public int eliminarCupon(int id_cupon) {
+    public int eliminarCuponDescuento(int id_cupon) {
         for (int i = 0; i < cupones.size(); i++) {
             if (cupones.get(i).getId_cupon() == id_cupon) {
                 cupones.remove(i);
@@ -40,13 +40,13 @@ public class CuponDescuentoRepository {
     }
 
     // GUARDAR Cupon
-    public CuponDescuento guardarCupon(CuponDescuento cupon) {
+    public CuponDescuento guardarCuponDescuento(CuponDescuento cupon) {
         cupones.add(cupon);
         return cupon;
     }
 
     // MODIFICAR COMUNA
-    public int modificarCupon(CuponDescuento cupon) {
+    public int modificarCuponDescuento(CuponDescuento cupon) {
     try {
         for (int i = 0; i < cupones.size(); i++) {
             if (cupones.get(i).getId_cupon() == cupon.getId_cupon()) {
