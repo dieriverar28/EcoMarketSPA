@@ -1,0 +1,28 @@
+package com.example.EcoMarketSPA.model;
+
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity //se conecta con entidad
+@Table(name="proveedor") //la tabla nombre persona
+@Data //antes de data ahora va lo de arriba
+@AllArgsConstructor
+@NoArgsConstructor
+
+public class Proveedor {
+    @Id
+    private int id_proveedor; //pk
+    @Column(name="nombre", nullable =false)
+    private String nombre;
+    @Column(name="telefono", nullable =false)
+    private String telefono;
+    @Column(name="email", nullable =false)
+    private String email;
+    private int id_comuna; //fk comuna
+}
