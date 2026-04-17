@@ -13,7 +13,7 @@ public class GeneroService {
         return GeneroRepository.buscarGenero(id_genero);
     }
     //eliminar x id_gemero
-    public int deleteGenero(int_Genero){
+    public int delateGenero(int id_genero){
         return GeneroRepository.eliminarGenero(id_genero);
     }
     //guardar genero
