@@ -15,7 +15,7 @@ public class BoletaService {
     private BoletaRepository boletaRepository; 
 
 //OBTENER TODAS LAS BOLETAS
-    public List<Boleta> getAllBoletas() {
+    public List<Boleta> getBoletas() {
         return boletaRepository.obtenerBoletas();
     }
 //OBTENER BOLETA POR ID

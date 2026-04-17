@@ -15,11 +15,11 @@ public class ClienteService {
     private ClienteRepository clienteRepository; 
 
 //OBTENER clientes
-    public List<Cliente> getAllClientes() {
+    public List<Cliente> getClientes() {
         return clienteRepository.obtenerClientes();
     }
-//OBTENER BOLETA POR ID
-    public Cliente getBoletaById(int id_cliente) {
+//OBTENER CLIENTE POR ID
+    public Cliente getClienteById(int id_cliente) {
         return clienteRepository.buscarCliente(id_cliente);
     }
 //CREAR cliente
