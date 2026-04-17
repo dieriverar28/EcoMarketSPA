@@ -1,5 +1,11 @@
 package com.example.EcoMarketSPA.service;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.EcoMarketSPA.model.Genero;
+
 public class GeneroService {
     @Autowired
     //llama repository
@@ -26,8 +32,4 @@ public class GeneroService {
 
 
     }
-
-
-
-
 }
