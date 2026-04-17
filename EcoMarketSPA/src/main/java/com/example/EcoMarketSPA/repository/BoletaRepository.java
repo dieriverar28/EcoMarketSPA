@@ -14,7 +14,7 @@ public class BoletaRepository {
     private List<Boleta>boletas=new ArrayList<>();
     
     //OBTENER TODOS
-    public List<Boleta> obtenerBelBoletas(){
+    public List<Boleta> obtenerBoletas(){
         return boletas;
     }
     //BUSCAR X id_boleta
