@@ -28,7 +28,7 @@ public class ClienteController {
     private ClienteService clienteService;
 
     @GetMapping
-    public List<Cliente> listaClientes(){
+    public List<Cliente> listarClientes(){
         return clienteService.getClientes();
     }
     //agregar

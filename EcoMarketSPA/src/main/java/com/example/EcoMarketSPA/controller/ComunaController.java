@@ -25,7 +25,7 @@ public class ComunaController {
     private ComunaService comunaService;
 
     @GetMapping
-    public List<Comuna> listaComunas(){
+    public List<Comuna> listarComunas(){
         return comunaService.getComunas();
     }
     
