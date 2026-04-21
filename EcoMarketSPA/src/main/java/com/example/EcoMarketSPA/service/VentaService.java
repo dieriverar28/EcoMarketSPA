@@ -33,7 +33,7 @@ public class VentaService {
         return ventaRepository.guardarVenta(venta);
     }
     //modificar
-    public Venta updateVenta(Venta venta){
+    public int updateVenta(Venta venta){
         return ventaRepository.modificarVenta(venta);
     }
 

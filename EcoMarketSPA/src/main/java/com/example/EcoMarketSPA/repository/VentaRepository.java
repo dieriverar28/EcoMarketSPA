@@ -15,7 +15,7 @@ public class VentaRepository {
 
 
     //OBTNENER TODOS
-    public List<Venta> obtenerHorarioTiendas(){
+    public List<Venta> obtenerVentas(){
         return ventas;
     }
 

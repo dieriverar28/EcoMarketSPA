@@ -16,7 +16,7 @@ public class RutaEntregaService {
     private RutaEntregaRepository rutaEntregaRepository;
     //obtener
     public List<RutaEntrega> getRutaEntregas(){
-        return rutaEntregaRepository.obtenerRutaEntregas();
+        return rutaEntregaRepository.obtenerRutaEntrega();
     }
     //bucar
     public RutaEntrega getRutaEntrega(int id_ruta_entrega){
@@ -28,11 +28,11 @@ public class RutaEntregaService {
     }
     //buardar
     public RutaEntrega saveRutaEntrega(RutaEntrega rutaEntrega){
-        return rutaEntregaRepository.guardarRutaEntrega(rutaEntrega)
+        return rutaEntregaRepository.guardarRutaEntrega(rutaEntrega);
     }
     //modificar
-    public RutaEntrega updateRutaEntrega(RutaEntrega rutaEntrega){
-        return rutaEntregaRepository.modificarRuta(rutaEntrega)
+    public int updateRutaEntrega(RutaEntrega rutaEntrega){
+        return rutaEntregaRepository.modificarRuta(rutaEntrega);
     }
 
 

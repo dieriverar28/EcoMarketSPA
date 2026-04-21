@@ -17,7 +17,7 @@ public class UsuarioService {
     private UsuarioRepository usuarioRepository;
     //obtener
     private List<Usuario> getUsuarios(){
-        return usuarioRepository.obtenerUsuarios();
+        return usuarioRepository.obtenerUsuario();
     }
     //bucar
     public Usuario getUsuario(int id_usuario){
@@ -32,7 +32,7 @@ public class UsuarioService {
         return usuarioRepository.guardarUsuario(usuario);
     }
     //modificar
-    public Usuario updateUsuario(Usuario usuario){
+    public int updateUsuario(Usuario usuario){
         return usuarioRepository.modificarUsuario(usuario);
     }
 

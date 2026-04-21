@@ -17,7 +17,7 @@ public class StockInventarioService {
     private StockInventarioRepository stockInventarioRepository;
     //obtener
     public List<StockInventario> getStockInventarios(){
-        return stockInventarioRepository.obtenerStockInventarios();
+        return stockInventarioRepository.obtenerStockInventario();
     } 
     //bucar
     public StockInventario getStockInventario(int id_stock_inventario){
@@ -29,10 +29,10 @@ public class StockInventarioService {
     }
     //buardar
     public StockInventario saveStockInventario(StockInventario stockInventario){
-        return stockInventarioRepository.guardarStockInventario(stockInventario)
+        return stockInventarioRepository.guardarStockInventario(stockInventario);
     }
     //modificar
-    public StockInventario updateStockInventario(StockInventario stockInventario){
+    public int updateStockInventario(StockInventario stockInventario){
         return stockInventarioRepository.modificarStockInventario(stockInventario);
     }
 

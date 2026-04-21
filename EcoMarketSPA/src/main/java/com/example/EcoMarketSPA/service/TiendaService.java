@@ -1,6 +1,5 @@
 package com.example.EcoMarketSPA.service;
 
-import java.security.PrivateKey;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +17,7 @@ public class TiendaService {
     private TiendaRepository tiendaRepository;
     //obtener
     public List<Tienda> getTiendas(){
-        return tiendaRepository.obtenerTiendas();
+        return tiendaRepository.obtenerTienda();
     }
     //bucar
     public Tienda getTienda(int id_tienda){
@@ -33,7 +32,7 @@ public class TiendaService {
         return tiendaRepository.guardarTienda(tienda);
     }
     //modificar
-    public Tienda updateTienda(Tienda tienda){
+    public int updateTienda(Tienda tienda){
         return tiendaRepository.modificarTienda(tienda);
     }
 

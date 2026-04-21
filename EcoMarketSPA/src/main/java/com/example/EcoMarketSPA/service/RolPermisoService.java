@@ -11,7 +11,7 @@ import com.example.EcoMarketSPA.repository.RolPermisoRepository;
 
 
 @Service
-public class RolPermisoService {  
+public class RolPermisoService {
     @Autowired
     private RolPermisoRepository rolPermisoRepository;
 
@@ -32,7 +32,7 @@ public class RolPermisoService {
         return rolPermisoRepository.guardarRolPermiso(rolPermiso);
     }
     //modificar
-    public RolPermiso updateRolPermiso(RolPermiso rolPermiso){
+    public int updateRolPermiso(RolPermiso rolPermiso){
         return rolPermisoRepository.modificarRolPermiso(rolPermiso);
     }
 
