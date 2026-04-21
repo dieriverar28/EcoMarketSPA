@@ -26,7 +26,7 @@ public class RutaEntregaController {
 
      @GetMapping
     public List<RutaEntrega> listarRutasEntrega(){
-        return rutaEntregaService.getRutasEntrega();
+        return rutaEntregaService.getRutaEntregas();
     }
      //agregar
      @PostMapping

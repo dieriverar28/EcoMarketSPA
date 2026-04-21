@@ -26,7 +26,7 @@ public class UsuarioController {
 
     @GetMapping
     public List<Usuario> listarUsuarios(){
-        return usuarioService.getUsuarios();
+        return usuarioService.getUsuario();
     }
      //agregar
     @PostMapping

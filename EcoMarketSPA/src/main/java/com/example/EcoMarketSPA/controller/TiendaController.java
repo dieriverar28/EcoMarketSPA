@@ -41,7 +41,7 @@ public class TiendaController {
     //actualizar
     @PutMapping("/{id_tienda}")
     public Tienda actualizarTienda(@PathVariable int id_tienda, @Valid @RequestBody Tienda tienda){
-        return tiendaService.updateTienda(id_tienda, tienda);
+        return tiendaService.updateTienda( id_tienda,tienda);
     }
     //eliminar
     @DeleteMapping("/{id_tienda}")
