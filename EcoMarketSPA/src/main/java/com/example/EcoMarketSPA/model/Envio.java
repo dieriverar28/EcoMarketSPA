@@ -5,6 +5,7 @@ import java.sql.Date;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,8 +21,17 @@ import lombok.NoArgsConstructor;
 public class Envio {
     @Id
     private int id_envio; //pk
+    @Column(name="id_venta", nullable =false)
+    @OneToMany(mappedBy = "venta")
+    private int id_venta; //fk
+    @Column(name="id_cliente", nullable =false)
+    @OneToMany(mappedBy = "cliente")
     private int id_cliente; //fk
+    @Column(name="id_provedor", nullable =false)
+    @OneToMany(mappedBy = "provedor")
     private int id_provedor;//fk
+    @Column(name="id_ruta", nullable =false)
+    @OneToMany(mappedBy = "ruta")
     private int id_ruta; //fk
     private boolean estado;
     @Column(name="fecha_despacho", nullable =false)

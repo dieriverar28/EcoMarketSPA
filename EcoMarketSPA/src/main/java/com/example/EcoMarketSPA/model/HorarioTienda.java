@@ -5,6 +5,7 @@ import java.sql.Time;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,6 +20,8 @@ import lombok.NoArgsConstructor;
 public class HorarioTienda {
     @Id
     private int id_horario;//pk
+    @Column(name="id_tienda", nullable =false)
+    @OneToMany(mappedBy = "tienda")
     private int id_tienda;//fk
     @Column(name="dia_semana", nullable =false)
     private String dia_semana;

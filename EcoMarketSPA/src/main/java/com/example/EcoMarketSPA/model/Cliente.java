@@ -4,6 +4,7 @@ package com.example.EcoMarketSPA.model;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,6 +25,11 @@ public class Cliente {
     private String email;
         @Column(name = "telefono",nullable = false)
     private String telefono;
+    @Column(name="id_comuna", nullable =false)
+    @OneToMany(mappedBy = "comuna")
     private int id_comuna; //FK
     private String  direccion_envio;
+    @Column(name="id_genero", nullable =false)
+    @OneToMany(mappedBy = "genero")
+    private int id_genero; //FK
 }

@@ -9,6 +9,7 @@ import jakarta.persistence.Entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
@@ -25,6 +26,8 @@ import lombok.NoArgsConstructor;
 public class Factura {
     @Id
     private int id_factura;//pk
+    @Column(name="id_venta", nullable =false)
+    @OneToMany(mappedBy = "venta")
     private int id_venta;//fk
     @Column(name="folio", nullable =false)
     private String folio;
