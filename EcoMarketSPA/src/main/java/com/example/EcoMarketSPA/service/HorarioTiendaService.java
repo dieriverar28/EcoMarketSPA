@@ -3,10 +3,13 @@ package com.example.EcoMarketSPA.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.EcoMarketSPA.model.HorarioTienda;
 import com.example.EcoMarketSPA.repository.HorarioTiendaRepository;
 
+
+@Service
 public class HorarioTiendaService {
     @Autowired
     //
@@ -20,7 +23,7 @@ public class HorarioTiendaService {
         return horarioTiendaRepository.buscarHorarioTienda(id_horario_tienda);
     }
     //eliminar por id
-    public int delateHorarioTienda(int id_horario_tienda){
+    public int deleteHorarioTienda(int id_horario_tienda){
         return horarioTiendaRepository.eliminarHorario(id_horario_tienda);
     }
     //guardadr por id 
@@ -28,8 +31,8 @@ public class HorarioTiendaService {
         return horarioTiendaRepository.guardarHorarioTienda(horariotienda);
     }
     //modificar por id 
-    public HorarioTienda updateHorarioTienda(HorarioTienda horarioTienda){
-        return horarioTiendaRepository.modificarHorarioTienda(horarioTienda);
+    public int  updateHorarioTienda(HorarioTienda horario){
+        return horarioTiendaRepository.modificarHorario(horario);
     }
 
     }

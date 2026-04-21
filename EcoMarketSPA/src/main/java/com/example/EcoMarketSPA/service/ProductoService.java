@@ -3,10 +3,15 @@ package com.example.EcoMarketSPA.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.EcoMarketSPA.model.Producto;
 import com.example.EcoMarketSPA.repository.ProductoRepository;
 
+
+
+
+@Service
 public class ProductoService {
     @Autowired
     private ProductoRepository productoRepository;
@@ -20,7 +25,7 @@ public class ProductoService {
         return productoRepository.buscarProducto(id_producto);
     }
     //eliminar
-    public int delateProducto(int id_producto){
+    public int deleteProducto(int id_producto){
         return productoRepository.eliminarProducto(id_producto);
     }
     //guardar
@@ -28,7 +33,7 @@ public class ProductoService {
         return productoRepository.guardarProducto(producto);
     }
     //modifiicar
-    public Producto updateProducto(Producto producto){
-        return productoRepository.modificarProductoProducto(producto);
+    public int updateProducto(Producto producto){
+        return productoRepository.modificarProducto(producto);
     }
 }

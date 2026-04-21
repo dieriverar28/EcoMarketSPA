@@ -14,7 +14,7 @@ public class GeneroRepository {
     private List<Genero>generos=new ArrayList<>();
 
     //OBTNENER TODOS
-    public List<Genero> obtenerCuponDescuentos(){
+    public List<Genero> obtenerGenero(){
         return generos;
     }
 

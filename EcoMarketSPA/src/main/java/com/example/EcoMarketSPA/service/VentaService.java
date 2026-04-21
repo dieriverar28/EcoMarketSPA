@@ -3,10 +3,16 @@ package com.example.EcoMarketSPA.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.EcoMarketSPA.model.Venta;
 import com.example.EcoMarketSPA.repository.VentaRepository;
 
+
+
+
+
+@Service
 public class VentaService {
     @Autowired
     private VentaRepository ventaRepository;

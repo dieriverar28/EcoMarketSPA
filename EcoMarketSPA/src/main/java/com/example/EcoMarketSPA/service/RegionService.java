@@ -3,10 +3,13 @@ package com.example.EcoMarketSPA.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.EcoMarketSPA.model.Region;
 import com.example.EcoMarketSPA.repository.RegionRepository;
 
+
+@Service
 public class RegionService {
     @Autowired
     private RegionRepository regionRepository;
@@ -28,7 +31,7 @@ public class RegionService {
         return regionRepository.guardarRegion(region);
     }
     //modificar
-    public Region updateRegion(Region region){
+    public int updateRegion(Region region){
         return regionRepository.modificarRegion(region);
     }
 

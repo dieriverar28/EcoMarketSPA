@@ -14,7 +14,7 @@ public class ProveedorRepository {
     private List<Proveedor>proveedores=new ArrayList<>();
 
     //OBTNENER TODOS
-    public List<Proveedor> obtenerpProveedors(){
+    public List<Proveedor> obtenerProveedor(){
         return proveedores;
     }
 

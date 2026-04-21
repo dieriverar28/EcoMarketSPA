@@ -45,7 +45,7 @@ public class PedidoRepository {
         return pedido;
     }
 
-    // MODIFICAR COMUNA
+    // MODIFICAR pedido
     public int modificarPedido(Pedido pedido) {
     try {
         for (int i = 0; i < pedidos.size(); i++) {

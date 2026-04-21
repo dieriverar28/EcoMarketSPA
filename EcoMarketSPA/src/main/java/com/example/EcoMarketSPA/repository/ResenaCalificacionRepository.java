@@ -29,7 +29,7 @@ public class ResenaCalificacionRepository {
     }
 
      // ELIMINAR POR ID
-    public int eliminarHorario(int id_resena) {
+    public int eliminarResena(int id_resena) {
         for (int i = 0; i < resenas.size(); i++) {
             if (resenas.get(i).getId_resena() == id_resena) {
                 resenas.remove(i);
