@@ -2,10 +2,15 @@ package com.example.EcoMarketSPA.model;
 
 import java.sql.Date;
 
-import jakarta.persistence.Column;
+
 import jakarta.persistence.Entity;
+
+
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,6 +21,7 @@ import lombok.NoArgsConstructor;
 @Data //antes de data ahora va lo de arriba
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class Factura {
     @Id
     private int id_factura;//pk
