@@ -26,7 +26,7 @@ public class ResenaCalificacionController {
 
     @GetMapping
     public List<ResenaCalificacion> listarResenasCalificaciones(){
-        return resenaCalificacionService.getResenasCalificaciones();
+        return resenaCalificacionService.getResenaCalificaciones();
     }
     //agregar
     @PostMapping
