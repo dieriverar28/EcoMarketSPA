@@ -35,6 +35,4 @@ public class UsuarioService {
     public int updateUsuario(Usuario usuario){
         return usuarioRepository.modificarUsuario(usuario);
     }
-
-
 }
