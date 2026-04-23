@@ -26,7 +26,7 @@ public class CuponDescuentoController {
 
     @GetMapping
     public List<CuponDescuento> listarCuponDescuentos(){
-        return cuponDescuentoService.getCuponDescuento();
+        return cuponDescuentoService.getAllCupones();
     }
 
     //agregar
