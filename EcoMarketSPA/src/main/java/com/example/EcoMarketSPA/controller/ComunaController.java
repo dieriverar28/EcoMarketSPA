@@ -17,7 +17,7 @@ import com.example.EcoMarketSPA.service.ComunaService;
 
 import jakarta.validation.Valid;
 
-@SuppressWarnings("unusaeed")
+@SuppressWarnings("unused")
 @RestController
 @RequestMapping("api/v1/comunas")
 public class ComunaController {
