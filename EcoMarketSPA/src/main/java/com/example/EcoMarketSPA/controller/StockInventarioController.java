@@ -29,10 +29,10 @@ public class StockInventarioController {
         return stockInventarioService.getStockInventarios();
     }
     //agregar
-        @PostMapping
-        public StockInventario agregarStockInventario(@Valid @RequestBody StockInventario stockInventario){
-            return stockInventarioService.saveStockInventario(stockInventario);
-        }
+    @PostMapping
+    public StockInventario agregarStockInventario(@Valid @RequestBody StockInventario stockInventario){
+        return stockInventarioService.saveStockInventario(stockInventario);
+    }
     //buscar
     @GetMapping("/{id_stock_inventario}")
     public StockInventario buscarStockInventario(@PathVariable int id_stock_inventario){
@@ -50,6 +50,6 @@ public class StockInventarioController {
             return "StockInventario eliminado correctamente";
         }
         return "Error al eliminar el stock_inventario";
-     }
+    }
 
 }

@@ -12,6 +12,7 @@ import com.example.EcoMarketSPA.repository.StockInventarioRepository;
 
 
 @Service
+@Transactional
 public class StockInventarioService {
     @Autowired
     private StockInventarioRepository stockInventarioRepository;
@@ -21,19 +22,25 @@ public class StockInventarioService {
     } 
     //bucar
     public StockInventario getStockInventario(int id_stock_inventario){
-        return stockInventarioRepository.buscarStockInventario(id_stock_inventario);
+        StockInventario stockInventarios = stockInventarioRepository.buscarStockInventario(id_stock_inventario);
+        if (stockInventarios!=null) {
+        return stockInventarios;
+        }else
+        return new StockInventario();
     }
     //eliminar
     public int deleteStockInventario(int id_stock_inventario){
-        return stockInventarioRepository.eliminarStockInventario(id_stock_inventario);
+        stockInventarioRepository.delete(getStockInventario(id_stock_inventario));
+        return 1;
     }
     //buardar
     public StockInventario saveStockInventario(StockInventario stockInventario){
-        return stockInventarioRepository.guardarStockInventario(stockInventario);
+        return stockInventarioRepository.save(stockInventario);
     }
     //modificar
     public int updateStockInventario(StockInventario stockInventario){
-        return stockInventarioRepository.modificarStockInventario(stockInventario);
+        stockInventarioRepository.save(stockInventario);
+        return 1;
     }
 
 
