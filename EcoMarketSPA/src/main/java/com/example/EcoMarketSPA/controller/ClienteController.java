@@ -34,7 +34,7 @@ public class ClienteController {
     //agregar
     @PostMapping
     public Cliente agregarCliente(@Valid @RequestBody Cliente cliente){
-        return clienteService.saveBoletas(cliente);
+        return clienteService.saveClientes(cliente);
 
     }
     //buscar
