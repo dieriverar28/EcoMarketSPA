@@ -32,7 +32,7 @@ public class BoletaController {
 
     @GetMapping
     public List<Boleta> listarBoleta(){
-        return boletaService.getAllBoletas();
+        return boletaService.getBoletas();
     } 
 
     @PostMapping

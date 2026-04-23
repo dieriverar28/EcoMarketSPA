@@ -18,8 +18,8 @@ public class BoletaService {
     private BoletaRepository boletaRepository; 
 
 //OBTENER TODAS LAS BOLETAS
-    public List<Boleta> getAllBoletas() {
-        return boletaRepository.findAll();
+    public List<Boleta> getBoletas() {
+        return boletaRepository.obtenerBoletas();
     }
 //OBTENER BOLETA POR ID
     public Boleta getBoletaById(int id_boleta) {
