@@ -41,7 +41,7 @@ public class DetallePedidoController {
     }
     //actualizar
     @PutMapping("{id_detalle_pedido}")
-    public DetallePedido actualizarDetallePedido(@PathVariable int id_detalle_pedido, @Valid @RequestBody DetallePedido detallePedido){
+    public  int actualizarDetallePedido(@PathVariable int id_detalle_pedido, @Valid @RequestBody DetallePedido detallePedido){
         return detallePedidoService.updateDetallePedido(detallePedido);
     }
     //eliminar

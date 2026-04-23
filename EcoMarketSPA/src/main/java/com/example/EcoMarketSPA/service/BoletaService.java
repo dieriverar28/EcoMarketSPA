@@ -8,31 +8,41 @@ import org.springframework.stereotype.Service;
 import com.example.EcoMarketSPA.model.Boleta;
 import com.example.EcoMarketSPA.repository.BoletaRepository;
 
+import jakarta.transaction.Transactional;
+
 @Service
+@Transactional
 public class BoletaService {
     @Autowired
 //SE LLAMA AL REPOSITORIO PARA PODER USAR SUS FUNCIONES
     private BoletaRepository boletaRepository; 
 
 //OBTENER TODAS LAS BOLETAS
-    public List<Boleta> getBoletas() {
-        return boletaRepository.obtenerBoletas();
+    public List<Boleta> getAllBoletas() {
+        return boletaRepository.findAll();
     }
 //OBTENER BOLETA POR ID
     public Boleta getBoletaById(int id_boleta) {
-        return boletaRepository.buscarBoleta(id_boleta);
+        Boleta boletas = boletaRepository.buscarBoleta(id_boleta);
+        if (boletas!=null) {
+        return boletas;
+        }else
+        return new Boleta();
+    
     }
 //CREAR BOLETA
     public Boleta saveBoletas(Boleta boleta) {
-        return boletaRepository.guardarBoleta(boleta);
+        return boletaRepository.save(boleta);
     }
 //ACTUALIZAR BOLETA
     public int updateBoleta(Boleta boleta) {
-        return boletaRepository.modificarBoleta(boleta);
+         boletaRepository.save(boleta);
+        return 1;
     }
 //ELIMINAR BOLETA
     public int deleteBoleta(int id_boleta) {
-        return boletaRepository.eliminarBoleta(id_boleta);
+        boletaRepository.delete(getBoletaById(id_boleta));
+        return 1;
     }
 
 }
