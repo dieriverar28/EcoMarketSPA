@@ -10,6 +10,7 @@ import com.example.EcoMarketSPA.repository.RegionRepository;
 
 
 @Service
+@Transactional
 public class RegionService {
     @Autowired
     private RegionRepository regionRepository;
@@ -20,19 +21,25 @@ public class RegionService {
     }
     //bucar
     public Region getRegion(int id_region){
-        return regionRepository.buscarRegion(id_region);
+        Region regiones = regionRepository.buscarRegion(id_region);
+        if (regiones!=null) {
+        return regiones;
+        }else
+        return new Region();
     }
     //eliminar
     public int deleteRegion(int id_region){
-        return regionRepository.eliminarRegion(id_region);
+        regionRepository.eliminarRegion(id_region);
+        return 1;
     }
     //guardar
     public Region saveRegion(Region region){
-        return regionRepository.guardarRegion(region);
+        return regionRepository.save(region);
     }
     //modificar
     public int updateRegion(Region region){
-        return regionRepository.modificarRegion(region);
+        regionRepository.save(region);
+        return 1;
     }
 
 
