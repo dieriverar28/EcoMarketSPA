@@ -1,0 +1,43 @@
+package com.example.EcoMarketSPA.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.EcoMarketSPA.model.Envio;
+import com.example.EcoMarketSPA.repository.EnvioRepository;
+
+@Service
+
+public class EnvioService {
+    @Autowired
+//LLAMAR REPOSITORIO
+    private EnvioRepository envioRepository;
+
+    //OBTENER TODOS
+    public List<Envio> getEnvios(){
+        return envioRepository.obtenerEnvios();
+    }
+
+    //BUSCAR X id_envio
+    public Envio getEnvio(int id_envio){
+        return envioRepository.buscarEnvio(id_envio);
+    }
+
+    // ELIMINAR POR ID
+    public int deleteEnvio(int id_envio) {
+        return envioRepository.eliminarEnvio(id_envio);
+    }
+
+    // GUARDAR envio
+    public Envio saveCupon(Envio envio) {
+        return envioRepository.guardarCupon(envio);
+    }
+
+    // MODIFICAR envio
+    public int updateEnvio(Envio envio) {
+        return envioRepository.modificarEnvio(envio);
+    }
+
+}
