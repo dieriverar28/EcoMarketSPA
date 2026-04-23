@@ -9,10 +9,8 @@ import com.example.EcoMarketSPA.model.Venta;
 import com.example.EcoMarketSPA.repository.VentaRepository;
 
 
-
-
-
 @Service
+@Transactional
 public class VentaService {
     @Autowired
     private VentaRepository ventaRepository;
@@ -22,19 +20,25 @@ public class VentaService {
     }
     //bucar
     public Venta getVenta(int id_venta){
-        return ventaRepository.buscarVenta(id_venta);
+        Venta ventas = ventaRepository.buscarVenta(id_venta);
+        if (ventas!=null) {
+        return ventas;
+        }else
+        return new Venta();
     }
     //eliminar
     public int deleteVenta(int id_venta){
-        return ventaRepository.eliminarVenta(id_venta);
+        ventaRepository.delete(getVenta(id_venta));
+        return 1;
     }
     //buardar
     public Venta saveVenta(Venta venta){
-        return ventaRepository.guardarVenta(venta);
+        return ventaRepository.save(venta);
     }
     //modificar
     public int updateVenta(Venta venta){
-        return ventaRepository.modificarVenta(venta);
+        return ventaRepository.save(venta);
+        return 1;
     }
 
 
