@@ -20,19 +20,26 @@ public class ProveedorService {
     }
     //bucar
     public Proveedor getProveedor(int id_proveedor){
-        return proveedorRepository.buscarProveedor(id_proveedor);
+        Proveedor proveedor = proveedorRepository.buscarProveedor(id_proveedor);
+        if (proveedor != null) {
+            return proveedor;
+        } else {
+            return new Proveedor();
+        }
     }
     //eliminar
     public int deleteProveedor(int id_proveedor){
-        return proveedorRepository.eliminarProveedor(id_proveedor);
+        proveedorRepository.eliminarProveedor(id_proveedor);
+        return 1;
     }
     //guardar
     public Proveedor saveProveedor(Proveedor proveedor){
-        return proveedorRepository.guardarProveedor(proveedor);
+        return proveedorRepository.save(proveedor);
     }
     //modificar
     public int updateProveedor(Proveedor proveedor){
-        return proveedorRepository.modificarProveedor(proveedor);
+        proveedorRepository.save(proveedor);
+        return 1;
     }
 
 
