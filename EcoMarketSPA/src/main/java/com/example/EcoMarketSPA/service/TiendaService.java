@@ -12,6 +12,7 @@ import com.example.EcoMarketSPA.repository.TiendaRepository;
 
 
 @Service
+@Transactional
 public class TiendaService {
     @Autowired
     private TiendaRepository tiendaRepository;
@@ -21,19 +22,25 @@ public class TiendaService {
     }
     //bucar
     public Tienda getTienda(int id_tienda){
-        return tiendaRepository.buscarTienda(id_tienda);
+        Tienda tienda = tiendaRepository.buscarTienda(id_tienda);
+        if (tienda!=null) {
+            return tienda;
+        }else
+        return new Tienda();
     }
     //eliminar
     public int deleteTienda(int id_tienda){
-        return tiendaRepository.eliminarTienda(id_tienda);
+        tiendaRepository.eliminarTienda(id_tienda);
+        return 1;
     }
     //buardar
     public Tienda saveTienda(Tienda tienda){
-        return tiendaRepository.guardarTienda(tienda);
+        return tiendaRepository.save(tienda);
     }
     //modificar
     public int updateTienda(Tienda tienda){
-        return tiendaRepository.modificarTienda(tienda);
+        tiendaRepository.save(tienda);
+        return 1;
     }
 
 
