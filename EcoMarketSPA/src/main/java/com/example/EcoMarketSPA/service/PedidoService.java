@@ -20,19 +20,20 @@ public class PedidoService {
     }
     //buscar
     public Pedido getPedido(int id_pedido){
-        return pedidoRepository.buscarPedido(id_pedido);
     }
     //eliminar
     public int deletePedido(int id_pedido){
-        return pedidoRepository.eliminarPedido(id_pedido);
+        pedidoRepository.delete(getPedido(id_pedido));
+        return 1;
     }
     //guardar
     public Pedido savePedido(Pedido pedido){
-        return pedidoRepository.guardarPedido(pedido);
+        return pedidoRepository.save(pedido);
     }
     //modificar
     public int updatePedido(Pedido pedido){
-        return pedidoRepository.modificarPedido(pedido);
+        pedidoRepository.save(pedido);
+        return 1;
     }
 
 }

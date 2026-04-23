@@ -31,7 +31,7 @@ public class ProductoController {
     @PostMapping
     public Producto agregarProducto(@Valid @RequestBody Producto producto){
         return productoService.saveProducto(producto);
-     }
+    }
     //buscar
     @GetMapping("/{id_producto}")
     public Producto buscarProducto(@PathVariable int id_producto){

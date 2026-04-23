@@ -22,18 +22,24 @@ public class ProductoService {
     }
     //buscar
     public Producto getProducto(int id_producto){
-        return productoRepository.buscarProducto(id_producto);
+        Producto productos = productoRepository.buscarProducto(id_producto);
+        if (productos!=null) {
+        return productos;
+        }else
+        return new Producto();
     }
     //eliminar
     public int deleteProducto(int id_producto){
-        return productoRepository.eliminarProducto(id_producto);
+        productoRepository.delete(getProducto(id_producto));
+        return 1;
     }
     //guardar
     public Producto saveProducto(Producto producto){
-        return productoRepository.guardarProducto(producto);
+        return productoRepository.save(producto);
     }
     //modifiicar
     public int updateProducto(Producto producto){
-        return productoRepository.modificarProducto(producto);
+        productoRepository.save(producto);
+        return 1;
     }
 }
