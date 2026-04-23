@@ -20,6 +20,11 @@ public class PedidoService {
     }
     //buscar
     public Pedido getPedido(int id_pedido){
+        Pedido pedidos = pedidoRepository.buscarPedido(id_pedido);
+        if (pedidos!=null) {
+        return pedidos;
+        }else
+        return new Pedido();
     }
     //eliminar
     public int deletePedido(int id_pedido){
