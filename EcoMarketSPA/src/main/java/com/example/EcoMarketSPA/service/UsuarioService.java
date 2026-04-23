@@ -11,6 +11,7 @@ import com.example.EcoMarketSPA.repository.UsuarioRepository;
 
 
 @Service
+@Transactional
 public class UsuarioService {
     @Autowired
 
@@ -21,18 +22,24 @@ public class UsuarioService {
     }
     //bucar
     public Usuario getUsuario(int id_usuario){
-        return usuarioRepository.buscarUsuario(id_usuario);
+        Usuario usuarios = usuarioRepository.buscarUsuario(id_usuario);
+        if (usuarios!=null) {
+        return usuarios;
+        }else
+        return new Usuario();
     }
     //eliminar
     public int deleteUsuario(int id_usuario){
-        return usuarioRepository.eliminarUsuario(id_usuario);
+        usuarioRepository.delete(getUsuario(id_usuario));
+        return 1;
     }
     //buardar
     public Usuario saveUsuario(Usuario usuario){
-        return usuarioRepository.guardarUsuario(usuario);
+        return usuarioRepository.save(usuario);
     }
     //modificar
     public int updateUsuario(Usuario usuario){
-        return usuarioRepository.modificarUsuario(usuario);
+        return usuarioRepository.save(usuario);
+        return 1;
     }
 }
