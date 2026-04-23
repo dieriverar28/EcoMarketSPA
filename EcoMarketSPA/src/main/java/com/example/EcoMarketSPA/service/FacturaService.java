@@ -8,7 +8,10 @@ import org.springframework.stereotype.Service;
 import com.example.EcoMarketSPA.model.Factura;
 import com.example.EcoMarketSPA.repository.FacturaRepository;
 
+import jakarta.transaction.Transactional;
+
 @Service
+@Transactional
 public class FacturaService {
     @Autowired
 //LLAMAR REPOSITORIO
@@ -20,22 +23,28 @@ public class FacturaService {
 
     //BUSCAR X id_factura
     public Factura getFactura(int id_factura){
-        return facturaRepository.buscarFactura(id_factura);
+        Factura facturas = facturaRepository.buscarFactura(id_factura);
+        if (facturas!=null) {
+        return facturas;
+        }else
+        return new Factura();
     }
 
     // ELIMINAR POR ID
     public int deleteFactura(int id_factura) {
-        return facturaRepository.eliminarFactura(id_factura);
+        facturaRepository.delete(getFactura(id_factura));
+        return 1;
     }
 
     // GUARDAR factura
     public Factura saveFactura(Factura factura) {
-        return facturaRepository.guardarFactura(factura);
+        return facturaRepository.save(factura);
     }
 
     // MODIFICAR factura
     public int updateFactura(Factura factura) {
-        return facturaRepository.modificarFactura(factura);
+        facturaRepository.save(factura);
+        return 1;
     }
 
 }
