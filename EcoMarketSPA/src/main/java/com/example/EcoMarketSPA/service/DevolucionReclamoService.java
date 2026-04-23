@@ -8,7 +8,10 @@ import org.springframework.stereotype.Service;
 import com.example.EcoMarketSPA.model.DevolucionReclamo;
 import com.example.EcoMarketSPA.repository.DevolucionReclamoRepository;
 
+import jakarta.transaction.Transactional;
+
 @Service
+@Transactional
 public class DevolucionReclamoService {
     @Autowired
 //LLAMAR REPOSITORIO
@@ -19,22 +22,29 @@ public class DevolucionReclamoService {
     }   
 //OBTENER POR ID
     public DevolucionReclamo getDevolucionReclamoById(int id_devolucion) {
-        return devolucionReclamoRepository.busDevolucionReclamo(id_devolucion);
+        DevolucionReclamo devolucion = devolucionReclamoRepository.busDevolucionReclamo(id_devolucion);
+        if (devolucion!=null) {
+        return devolucion;
+        }else
+        return new DevolucionReclamo();
     }
 //CREAR DevolucionReclamo
     public DevolucionReclamo saveDevolucionReclamo(DevolucionReclamo devolucion) {
-        return devolucionReclamoRepository.guardarDevolucionReclamo(devolucion);
+        return devolucionReclamoRepository.save(devolucion);
     }
 //ACTUALIZAR DevolucionReclamo
     public int updateDevolucionReclamo(DevolucionReclamo devolucion) {
-        return devolucionReclamoRepository.modificarDevolucionReclamo(devolucion);
+        devolucionReclamoRepository.save(devolucion);
+        return 1;
     }   
 //ELIMINAR DevolucionReclamo
     public int deleteDevolucionReclamo(int id_devolucion) {
-        return devolucionReclamoRepository.eliminarDevolucionReclamo(id_devolucion);
+        devolucionReclamoRepository.delete(getDevolucionReclamoById(id_devolucion));
+        return 1;
     }      
 //MODIFICAR ESTADO DE DevolucionReclamo
     public int PostularDevolucionReclamo(DevolucionReclamo devolucion) {
-        return devolucionReclamoRepository.modificarDevolucionReclamo(devolucion);
+        devolucionReclamoRepository.save(devolucion);
+        return 1;
     }
 }
