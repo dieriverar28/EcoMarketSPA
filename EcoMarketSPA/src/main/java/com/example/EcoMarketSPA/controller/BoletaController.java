@@ -55,7 +55,7 @@ public class BoletaController {
         if (boletaService.deleteBoleta(id_boleta)==1) {
             return "boleta eliminada";
         } 
-        return "boleta eliminada";
+        return "error al eliminar boleta";
     }
 
     

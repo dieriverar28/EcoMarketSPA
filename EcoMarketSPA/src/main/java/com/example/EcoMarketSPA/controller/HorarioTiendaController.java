@@ -37,7 +37,7 @@ public class HorarioTiendaController {
     //buscar
     @GetMapping("/{id_horario_tienda}")
     public HorarioTienda buscarHorarioTienda(@PathVariable int id_horario_tienda){
-           return horarioTiendaService.getHorarioTienda(id_horario_tienda); 
+           return horarioTiendaService.getHorarioTiendaById(id_horario_tienda); 
         }
     //actualizar
     @PutMapping("/{id_horario_tienda}")

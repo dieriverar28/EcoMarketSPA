@@ -1,5 +1,6 @@
 package com.example.EcoMarketSPA.service;
 
+import com.example.EcoMarketSPA.controller.HorarioTiendaController;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,31 +9,42 @@ import org.springframework.stereotype.Service;
 import com.example.EcoMarketSPA.model.HorarioTienda;
 import com.example.EcoMarketSPA.repository.HorarioTiendaRepository;
 
+import jakarta.transaction.Transactional;
+
 
 @Service
+@Transactional
 public class HorarioTiendaService {
     @Autowired
     //
     private HorarioTiendaRepository horarioTiendaRepository;
+    
     //obtenre todos
     public List<HorarioTienda> getHorarioTienda(){
         return horarioTiendaRepository.obtenerHorarioTiendas();
     }
     //buscar por id 
-    public HorarioTienda getHorarioTienda(int id_horario_tienda){
-        return horarioTiendaRepository.buscarHorarioTienda(id_horario_tienda);
+    public HorarioTienda getHorarioTiendaById(int id_horario_tienda){
+        HorarioTienda horarioTienda = horarioTiendaRepository.buscarHorarioTienda(id_horario_tienda);
+        if (horarioTienda != null) {
+            return horarioTienda;
+        } else {
+            return new HorarioTienda();
+        }
     }
     //eliminar por id
     public int deleteHorarioTienda(int id_horario_tienda){
-        return horarioTiendaRepository.eliminarHorario(id_horario_tienda);
+        horarioTiendaRepository.delete(getHorarioTiendaById(id_horario_tienda));
+        return 1;
     }
     //guardadr por id 
     public HorarioTienda saveHorarioTienda(HorarioTienda horariotienda){
-        return horarioTiendaRepository.guardarHorarioTienda(horariotienda);
+        return horarioTiendaRepository.save(horariotienda);
     }
     //modificar por id 
     public int  updateHorarioTienda(HorarioTienda horario){
-        return horarioTiendaRepository.modificarHorario(horario);
+       horarioTiendaRepository.save(horario);
+       return 1;
     }
 
     }
