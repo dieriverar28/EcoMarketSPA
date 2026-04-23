@@ -11,6 +11,7 @@ import com.example.EcoMarketSPA.repository.RolPermisoRepository;
 
 
 @Service
+@Transactional
 public class RolPermisoService {
     @Autowired
     private RolPermisoRepository rolPermisoRepository;
@@ -21,19 +22,26 @@ public class RolPermisoService {
     }
     //bucar
     public RolPermiso getRolPermiso(int id_rol_permiso){
-        return rolPermisoRepository.buscarRolPermiso(id_rol_permiso);
+        RolPermiso rolPermiso = rolPermisoRepository.buscarRolPermiso(id_rol_permiso);
+        if (rolPermiso != null) {
+            return rolPermiso;
+        } else {
+            return new RolPermiso();
+        }
     }
     //eliminar
     public int deleteRolPermiso(int id_rol_permiso){
-        return rolPermisoRepository.eliminarRolPermiso(id_rol_permiso);
+        rolPermisoRepository.eliminarRolPermiso(id_rol_permiso);
+        return 1;
     }
     //guardar
     public RolPermiso saveRolPermiso(RolPermiso rolPermiso){
-        return rolPermisoRepository.guardarRolPermiso(rolPermiso);
+        return rolPermisoRepository.save(rolPermiso);
     }
     //modificar
     public int updateRolPermiso(RolPermiso rolPermiso){
-        return rolPermisoRepository.modificarRolPermiso(rolPermiso);
+        rolPermisoRepository.save(rolPermiso);
+        return 1;
     }
 
 
