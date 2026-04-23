@@ -9,6 +9,7 @@ import com.example.EcoMarketSPA.model.ResenaCalificacion;
 import com.example.EcoMarketSPA.repository.ResenaCalificacionRepository;
 
 @Service
+@Transactional
 public class ResenaCalificacionService {
     @Autowired
     private ResenaCalificacionRepository resenaCalificacionRepository;
@@ -19,19 +20,25 @@ public class ResenaCalificacionService {
     }
     //bucar
     public ResenaCalificacion getResenaCalificacion(int id_resena_calificacion){
-        return resenaCalificacionRepository.buscarResenaCalificacion(id_resena_calificacion);
+        ResenaCalificacion resenaCalificacion = resenaCalificacionRepository.buscarResenaCalificacion(id_resena_calificacion);
+        if (resenaCalificacion!=null) {
+            return resenaCalificacion;
+        }else
+        return new ResenaCalificacion();
     }
     //eliminar
     public int deleteResenaCalificacion(int id_resena_calificacion){
-        return resenaCalificacionRepository.eliminarResena(id_resena_calificacion);
+        resenaCalificacionRepository.eliminarResenaCalificacion(id_resena_calificacion);
+        return 1;
     }
     //guardar
     public ResenaCalificacion saveResenaCalificacion(ResenaCalificacion resenaCalificacion){
-        return resenaCalificacionRepository.guardarResenaCalificacion(resenaCalificacion);
+        return resenaCalificacionRepository.save(resenaCalificacion);
     }
     //modificar
     public int updateResenaCalificacion(ResenaCalificacion resenaCalificacion){
-        return resenaCalificacionRepository.modificarResena(resenaCalificacion);
+        resenaCalificacionRepository.save(resenaCalificacion);
+        return 1;
     }
 
 

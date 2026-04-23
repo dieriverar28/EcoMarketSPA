@@ -32,7 +32,7 @@ public class ResenaCalificacionController {
     @PostMapping
     public ResenaCalificacion agregarResenaCalificacion(@Valid @RequestBody ResenaCalificacion resenaCalificacion){
         return resenaCalificacionService.saveResenaCalificacion(resenaCalificacion);
-     }
+    }
 
     //buscar
     @GetMapping("/{id_resena_calificacion}")
