@@ -11,6 +11,7 @@ import com.example.EcoMarketSPA.repository.RutaEntregaRepository;
 
 
 @Service
+@Transactional
 public class RutaEntregaService {
     @Autowired
     private RutaEntregaRepository rutaEntregaRepository;
@@ -20,19 +21,25 @@ public class RutaEntregaService {
     }
     //bucar
     public RutaEntrega getRutaEntrega(int id_ruta_entrega){
-        return rutaEntregaRepository.buscarRutaEntrega(id_ruta_entrega);
+        RutaEntrega rutaEntregas = rutaEntregaRepository.buscarRutaEntrega(id_ruta_entrega);
+        if (rutaEntregas!=null) {
+            return rutaEntregas;
+        }else
+        return new RutaEntrega();
     }
     //eliminar
     public int deleteRutaEntrega(int id_ruta_entrega){
-        return rutaEntregaRepository.eliminarRutaEntrega(id_ruta_entrega);
+        rutaEntregaRepository.delete(getRutaEntrega(id_ruta_entrega));
+        return 1;
     }
     //buardar
     public RutaEntrega saveRutaEntrega(RutaEntrega rutaEntrega){
-        return rutaEntregaRepository.guardarRutaEntrega(rutaEntrega);
+        return rutaEntregaRepository.save(rutaEntrega);
     }
     //modificar
     public int updateRutaEntrega(RutaEntrega rutaEntrega){
-        return rutaEntregaRepository.modificarRuta(rutaEntrega);
+        rutaEntregaRepository.save(rutaEntrega);
+        return 1;
     }
 
 
