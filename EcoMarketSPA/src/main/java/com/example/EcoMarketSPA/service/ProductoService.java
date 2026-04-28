@@ -8,10 +8,13 @@ import org.springframework.stereotype.Service;
 import com.example.EcoMarketSPA.model.Producto;
 import com.example.EcoMarketSPA.repository.ProductoRepository;
 
+import jakarta.transaction.Transactional;
+
 
 
 
 @Service
+@Transactional
 public class ProductoService {
     @Autowired
     private ProductoRepository productoRepository;
