@@ -8,7 +8,10 @@ import org.springframework.stereotype.Service;
 import com.example.EcoMarketSPA.model.DetallePedido;
 import com.example.EcoMarketSPA.repository.DetallePedidoRepository;
 
+import jakarta.transaction.Transactional;
+
 @Service
+@Transactional
 public class DetallePedidoService {
     @Autowired
 //SE LLAMA AL REPOSITORIO DE DETALLE PEDIDO PARA REALIZAR LAS OPERACIONES DE LA BASE DE DATOS

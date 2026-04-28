@@ -9,9 +9,12 @@ import com.example.EcoMarketSPA.model.Genero;
 
 import com.example.EcoMarketSPA.repository.GeneroRepository;
 
+import jakarta.transaction.Transactional;
+
 
 
 @Service
+@Transactional
 public class GeneroService {
     @Autowired
     //llama repository
