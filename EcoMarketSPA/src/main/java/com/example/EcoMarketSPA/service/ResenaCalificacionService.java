@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import com.example.EcoMarketSPA.model.ResenaCalificacion;
 import com.example.EcoMarketSPA.repository.ResenaCalificacionRepository;
 
+import jakarta.transaction.Transactional;
+
 @Service
 @Transactional
 public class ResenaCalificacionService {
@@ -28,7 +30,7 @@ public class ResenaCalificacionService {
     }
     //eliminar
     public int deleteResenaCalificacion(int id_resena_calificacion){
-        resenaCalificacionRepository.eliminarResenaCalificacion(id_resena_calificacion);
+        resenaCalificacionRepository.deleteById(id_resena_calificacion);
         return 1;
     }
     //guardar

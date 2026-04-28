@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import com.example.EcoMarketSPA.model.Tienda;
 import com.example.EcoMarketSPA.repository.TiendaRepository;
 
+import jakarta.transaction.Transactional;
+
 
 
 
@@ -30,7 +32,7 @@ public class TiendaService {
     }
     //eliminar
     public int deleteTienda(int id_tienda){
-        tiendaRepository.eliminarTienda(id_tienda);
+        tiendaRepository.deleteById(id_tienda);
         return 1;
     }
     //buardar

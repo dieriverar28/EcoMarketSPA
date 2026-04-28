@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import com.example.EcoMarketSPA.model.Usuario;
 import com.example.EcoMarketSPA.repository.UsuarioRepository;
 
+import jakarta.transaction.Transactional;
+
 
 
 @Service
@@ -17,7 +19,7 @@ public class UsuarioService {
 
     private UsuarioRepository usuarioRepository;
     //obtener
-    private List<Usuario> getUsuarios(){
+    public List<Usuario> getUsuarios(){
         return usuarioRepository.obtenerUsuario();
     }
     //bucar
@@ -30,7 +32,7 @@ public class UsuarioService {
     }
     //eliminar
     public int deleteUsuario(int id_usuario){
-        usuarioRepository.delete(getUsuario(id_usuario));
+        usuarioRepository.deleteById(id_usuario);
         return 1;
     }
     //buardar
@@ -39,7 +41,7 @@ public class UsuarioService {
     }
     //modificar
     public int updateUsuario(Usuario usuario){
-        return usuarioRepository.save(usuario);
+        usuarioRepository.save(usuario);
         return 1;
     }
 }

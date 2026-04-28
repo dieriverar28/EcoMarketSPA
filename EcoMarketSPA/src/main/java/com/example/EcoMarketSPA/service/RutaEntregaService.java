@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import com.example.EcoMarketSPA.model.RutaEntrega;
 import com.example.EcoMarketSPA.repository.RutaEntregaRepository;
 
+import jakarta.transaction.Transactional;
+
 
 
 @Service
@@ -29,7 +31,7 @@ public class RutaEntregaService {
     }
     //eliminar
     public int deleteRutaEntrega(int id_ruta_entrega){
-        rutaEntregaRepository.delete(getRutaEntrega(id_ruta_entrega));
+        rutaEntregaRepository.deleteById(id_ruta_entrega);
         return 1;
     }
     //buardar
