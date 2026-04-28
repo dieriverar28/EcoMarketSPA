@@ -29,7 +29,7 @@ public class ProveedorService {
     }
     //eliminar
     public int deleteProveedor(int id_proveedor){
-        proveedorRepository.eliminarProveedor(id_proveedor);
+        proveedorRepository.deleteById(id_proveedor);
         return 1;
     }
     //guardar

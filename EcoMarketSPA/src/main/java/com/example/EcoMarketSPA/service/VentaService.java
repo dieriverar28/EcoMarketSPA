@@ -4,9 +4,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import jakarta.transaction.Transactional;
 
 import com.example.EcoMarketSPA.model.Venta;
 import com.example.EcoMarketSPA.repository.VentaRepository;
+
+import jakarta.transaction.Transactional;
 
 
 @Service
@@ -37,7 +40,7 @@ public class VentaService {
     }
     //modificar
     public int updateVenta(Venta venta){
-        return ventaRepository.save(venta);
+        ventaRepository.save(venta);
         return 1;
     }
 

@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import com.example.EcoMarketSPA.model.RolPermiso;
 import com.example.EcoMarketSPA.repository.RolPermisoRepository;
 
+import jakarta.transaction.Transactional;
+
 
 
 @Service
@@ -31,7 +33,7 @@ public class RolPermisoService {
     }
     //eliminar
     public int deleteRolPermiso(int id_rol_permiso){
-        rolPermisoRepository.eliminarRolPermiso(id_rol_permiso);
+        rolPermisoRepository.deleteById(id_rol_permiso);
         return 1;
     }
     //guardar

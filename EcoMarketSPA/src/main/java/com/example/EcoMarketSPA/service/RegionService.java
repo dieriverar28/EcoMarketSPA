@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import com.example.EcoMarketSPA.model.Region;
 import com.example.EcoMarketSPA.repository.RegionRepository;
 
+import jakarta.transaction.Transactional;
+
 
 @Service
 @Transactional
@@ -29,7 +31,7 @@ public class RegionService {
     }
     //eliminar
     public int deleteRegion(int id_region){
-        regionRepository.eliminarRegion(id_region);
+        regionRepository.deleteById(id_region);
         return 1;
     }
     //guardar
