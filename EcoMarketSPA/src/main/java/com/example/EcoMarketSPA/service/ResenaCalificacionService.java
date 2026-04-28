@@ -38,9 +38,13 @@ public class ResenaCalificacionService {
         return resenaCalificacionRepository.save(resenaCalificacion);
     }
     //modificar
-    public int updateResenaCalificacion(ResenaCalificacion resenaCalificacion){
-        resenaCalificacionRepository.save(resenaCalificacion);
-        return 1;
+    public ResenaCalificacion updateResenaCalificacion(int id_resena_calificacion, ResenaCalificacion resenaCalificacion){
+        ResenaCalificacion resenaExistente = getResenaCalificacion(id_resena_calificacion);
+        if (resenaExistente != null && resenaExistente.getId_resena() != 0) {
+            resenaCalificacion.setId_resena(id_resena_calificacion);
+            return resenaCalificacionRepository.save(resenaCalificacion);
+        }
+        return null;
     }
 
 

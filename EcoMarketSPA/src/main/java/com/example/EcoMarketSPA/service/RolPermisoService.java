@@ -41,9 +41,13 @@ public class RolPermisoService {
         return rolPermisoRepository.save(rolPermiso);
     }
     //modificar
-    public int updateRolPermiso(RolPermiso rolPermiso){
-        rolPermisoRepository.save(rolPermiso);
-        return 1;
+    public RolPermiso updateRolPermiso(int id_rol_permiso, RolPermiso rolPermiso){
+        RolPermiso rolPermisoExistente = getRolPermiso(id_rol_permiso);
+        if (rolPermisoExistente != null && rolPermisoExistente.getId_rol() != 0) {
+            rolPermiso.setId_rol(id_rol_permiso);
+            return rolPermisoRepository.save(rolPermiso);
+        }
+        return null;
     }
 
 

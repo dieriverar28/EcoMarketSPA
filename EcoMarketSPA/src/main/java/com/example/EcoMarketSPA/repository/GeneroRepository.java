@@ -35,6 +35,16 @@ public class GeneroRepository {
         return genero;
     }
 
+    // OBTENER POR ID
+    public Genero obtenerGeneroPorId(int id_genero) {
+        for (Genero genero : generos) {
+            if (genero.getId_genero() == id_genero) {
+                return genero;
+            }
+        }
+        return null;
+    }
+
     // MODIFICAR genero
     public int modificarGenero(Genero genero) {
     try {

@@ -39,9 +39,13 @@ public class RutaEntregaService {
         return rutaEntregaRepository.save(rutaEntrega);
     }
     //modificar
-    public int updateRutaEntrega(RutaEntrega rutaEntrega){
-        rutaEntregaRepository.save(rutaEntrega);
-        return 1;
+    public RutaEntrega updateRutaEntrega(int id_ruta_entrega, RutaEntrega rutaEntrega){
+        RutaEntrega rutaExistente = getRutaEntrega(id_ruta_entrega);
+        if (rutaExistente != null && rutaExistente.getId_ruta() != 0) {
+            rutaEntrega.setId_ruta(id_ruta_entrega);
+            return rutaEntregaRepository.save(rutaEntrega);
+        }
+        return null;
     }
 
 

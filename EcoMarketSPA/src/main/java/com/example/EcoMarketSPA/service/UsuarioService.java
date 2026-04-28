@@ -22,6 +22,10 @@ public class UsuarioService {
     public List<Usuario> getUsuarios(){
         return usuarioRepository.obtenerUsuario();
     }
+    //obtener sin parámetros (para compatibilidad con controlador)
+    public List<Usuario> getUsuario(){
+        return usuarioRepository.obtenerUsuario();
+    }
     //bucar
     public Usuario getUsuario(int id_usuario){
         Usuario usuarios = usuarioRepository.buscarUsuario(id_usuario);
@@ -40,8 +44,12 @@ public class UsuarioService {
         return usuarioRepository.save(usuario);
     }
     //modificar
-    public int updateUsuario(Usuario usuario){
-        usuarioRepository.save(usuario);
-        return 1;
+    public Usuario updateUsuario(int id_usuario, Usuario usuario){
+        Usuario usuarioExistente = getUsuario(id_usuario);
+        if (usuarioExistente != null && usuarioExistente.getId_usuario() != 0) {
+            usuario.setId_usuario(id_usuario);
+            return usuarioRepository.save(usuario);
+        }
+        return null;
     }
 }

@@ -37,9 +37,13 @@ public class ProveedorService {
         return proveedorRepository.save(proveedor);
     }
     //modificar
-    public int updateProveedor(Proveedor proveedor){
-        proveedorRepository.save(proveedor);
-        return 1;
+    public Proveedor updateProveedor(int id_proveedor, Proveedor proveedor){
+        Proveedor proveedorExistente = getProveedor(id_proveedor);
+        if (proveedorExistente != null && proveedorExistente.getId_proveedor() != 0) {
+            proveedor.setId_proveedor(id_proveedor);
+            return proveedorRepository.save(proveedor);
+        }
+        return null;
     }
 
 
