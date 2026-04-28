@@ -38,8 +38,12 @@ public class ProductoService {
         return productoRepository.save(producto);
     }
     //modifiicar
-    public int updateProducto(Producto producto){
-        productoRepository.save(producto);
-        return 1;
+    public Producto updateProducto(int id_producto, Producto producto){
+        Producto productoExistente = getProducto(id_producto);
+        if (productoExistente != null && productoExistente.getId_producto() != 0) {
+            producto.setId_producto(id_producto);
+            return productoRepository.save(producto);
+        }
+        return null;
     }
 }

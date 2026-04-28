@@ -40,9 +40,13 @@ public class TiendaService {
         return tiendaRepository.save(tienda);
     }
     //modificar
-    public int updateTienda(Tienda tienda){
-        tiendaRepository.save(tienda);
-        return 1;
+    public Tienda updateTienda(int id_tienda, Tienda tienda){
+        Tienda tiendaExistente = getTienda(id_tienda);
+        if (tiendaExistente != null && tiendaExistente.getId_tienda() != 0) {
+            tienda.setId_tienda(id_tienda);
+            return tiendaRepository.save(tienda);
+        }
+        return null;
     }
 
 

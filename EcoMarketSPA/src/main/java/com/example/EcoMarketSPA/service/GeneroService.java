@@ -21,6 +21,11 @@ public class GeneroService {
         return generoRepository.obtenerGenero();
     }
     
+    //obtener por id
+    public Genero getGenero(int id_genero){
+        return generoRepository.obtenerGeneroPorId(id_genero);
+    }
+    
     //eliminar x id_gemero
     public int deleteGenero(int id_genero){
         return generoRepository.eliminarGenero(id_genero);

@@ -39,9 +39,13 @@ public class RegionService {
         return regionRepository.save(region);
     }
     //modificar
-    public int updateRegion(Region region){
-        regionRepository.save(region);
-        return 1;
+    public Region updateRegion(int id_region, Region region){
+        Region regionExistente = getRegion(id_region);
+        if (regionExistente != null && regionExistente.getId_region() != 0) {
+            region.setId_region(id_region);
+            return regionRepository.save(region);
+        }
+        return null;
     }
 
 
