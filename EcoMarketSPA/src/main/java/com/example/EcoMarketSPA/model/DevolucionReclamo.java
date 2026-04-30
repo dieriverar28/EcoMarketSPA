@@ -5,6 +5,8 @@ import java.sql.Date;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -19,21 +21,21 @@ import lombok.NoArgsConstructor;
 
 
 public class DevolucionReclamo {
-    @Id 
-    private int id_devolucion;//pk
-    @Column(name="id_venta", nullable =false)
-    @OneToMany(mappedBy = "venta")
-    private int id_venta;//fk
-    @Column(name="id_cliente", nullable =false)
-    @OneToMany(mappedBy = "cliente")
-    private int id_cliente;//fk
-    @Column(name="id_producto", nullable =false)
-    @OneToMany(mappedBy = "producto")
-    private int id_producto;//fk
-    @Column(name="motivo", nullable =false)
+    @Id
+    private int id_devolucion;
+    @ManyToOne
+    @JoinColumn(name="id_venta", nullable=false)
+    private Venta venta;
+    @ManyToOne
+    @JoinColumn(name="id_cliente", nullable=false)
+    private Cliente cliente;
+    @ManyToOne
+    @JoinColumn(name="id_producto", nullable=false)
+    private Producto producto;
+    @Column(name="motivo", nullable=false)
     private String motivo;
-    @Column(name="estado", nullable =false)
+    @Column(name="estado", nullable=false)
     private boolean estado;
-    @Column(name="fecha", nullable =false)
+    @Column(name="fecha", nullable=false)
     private Date fecha;
 }

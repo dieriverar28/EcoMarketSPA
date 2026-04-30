@@ -5,7 +5,8 @@ import java.sql.Date;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,9 +21,9 @@ import lombok.NoArgsConstructor;
 public class Boleta {
     @Id
     private int id_boleta;
-    @Column(name="id_venta", nullable =false)
-    @OneToMany(mappedBy = "venta")
-    private int id_venta; //FK
+    @ManyToOne
+    @JoinColumn(name = "id_venta", nullable = false)
+    private Venta venta; //FK
     @Column(name="folio", nullable =false)
     private String folio;
     @Column(name="timbre_electronico", nullable =false)

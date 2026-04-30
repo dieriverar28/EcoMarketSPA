@@ -1,6 +1,6 @@
 package com.example.EcoMarketSPA.repository;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -14,8 +14,8 @@ public interface StockInventarioRepository extends JpaRepository<StockInventario
     @Query("SELECT s FROM StockInventario s")
     List<StockInventario> obtenerStockInventario();
 
-    @Query("SELECT s FROM StockInventario s WHERE s.id_stock_inventario = :id_stock_inventario")
-    StockInventario buscarStockInventario(int id_stock_inventario);
+    @Query("SELECT s FROM StockInventario s WHERE s.id_stock = :id_stock")
+    StockInventario buscarStockInventario(int id_stock);
 
 
 }

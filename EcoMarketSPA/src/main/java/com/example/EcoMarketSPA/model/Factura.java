@@ -9,6 +9,8 @@ import jakarta.persistence.Entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Entity;
@@ -25,26 +27,26 @@ import lombok.NoArgsConstructor;
 
 public class Factura {
     @Id
-    private int id_factura;//pk
-    @Column(name="id_venta", nullable =false)
-    @OneToMany(mappedBy = "venta")
-    private int id_venta;//fk
-    @Column(name="folio", nullable =false)
+    private int id_factura;
+    @ManyToOne
+    @JoinColumn(name="id_venta", nullable=false)
+    private Venta venta;
+    @Column(name="folio", nullable=false)
     private String folio;
-    @Column(name="timbre_electronico", nullable =false)
+    @Column(name="timbre_electronico", nullable=false)
     private String timbre_electronico;
-    @Column(name="razon_social", nullable =false)
+    @Column(name="razon_social", nullable=false)
     private String razon_social;
-    @Column(name="numrun_cliente", nullable =false)
+    @Column(name="numrun_cliente", nullable=false)
     private String numrun_cliente;
-    @Column(name="dvrun_cliente", nullable =false)
+    @Column(name="dvrun_cliente", nullable=false)
     private String dvrun_cliente;
-    @Column(name="giro", nullable =false)
+    @Column(name="giro", nullable=false)
     private String giro;
     private Date fecha_emision;
     private int monto_iva;
     private int monto_total;
-    @Column(name="email_envio", nullable =false)
+    @Column(name="email_envio", nullable=false)
     private String email_envio;
 
 }
