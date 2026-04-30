@@ -8,8 +8,11 @@ import org.springframework.stereotype.Service;
 import com.example.EcoMarketSPA.model.Pedido;
 import com.example.EcoMarketSPA.repository.PedidoRepository;
 
+import jakarta.transaction.Transactional;
+
 
 @Service
+@Transactional
 public class PedidoService {
     @Autowired
     private PedidoRepository pedidoRepository;
