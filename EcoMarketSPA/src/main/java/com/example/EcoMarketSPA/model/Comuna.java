@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 
 public class Comuna {
     @Id
-    private int id_comuna ;
+    private int id_comuna;
     @Column(name="nombre", nullable =false)
     private String nombre;
 

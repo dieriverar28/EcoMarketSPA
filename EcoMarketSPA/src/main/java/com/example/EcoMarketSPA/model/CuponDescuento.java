@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 
 public class CuponDescuento {
     @Id
-    private int id_cupon; //pk
+    private int id_cupon_descuento; //pk
     @Column(name="codigo", nullable =false)
     private int codigo;
     private int descuento_pct;

@@ -1,6 +1,6 @@
 package com.example.EcoMarketSPA.repository;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -16,6 +16,6 @@ public interface ResenaCalificacionRepository extends JpaRepository<ResenaCalifi
     @Query("SELECT r FROM ResenaCalificacion r")
     List<ResenaCalificacion> obtenerResenaCalificacion();
 
-    @Query("SELECT r FROM ResenaCalificacion r WHERE r.id_resena_calificacion = :id_resena_calificacion")
-    ResenaCalificacion buscarResenaCalificacion(int id_resena_calificacion);
+    @Query("SELECT r FROM ResenaCalificacion r WHERE r.id_resena = :id_resena")
+    ResenaCalificacion buscarResenaCalificacion(@org.springframework.data.repository.query.Param("id_resena") int id_resena);
 }

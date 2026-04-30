@@ -5,6 +5,8 @@ import java.sql.Time;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -19,11 +21,11 @@ import lombok.NoArgsConstructor;
 
 public class HorarioTienda {
     @Id
-    private int id_horario;//pk
-    @Column(name="id_tienda", nullable =false)
-    @OneToMany(mappedBy = "tienda")
-    private int id_tienda;//fk
-    @Column(name="dia_semana", nullable =false)
+    private int id_horario;
+    @ManyToOne
+    @JoinColumn(name="id_tienda", nullable=false)
+    private Tienda tienda;
+    @Column(name="dia_semana", nullable=false)
     private String dia_semana;
     private Time hora_apertura;
     private Time hora_cierre;

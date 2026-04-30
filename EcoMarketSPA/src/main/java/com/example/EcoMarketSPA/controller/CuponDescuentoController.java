@@ -35,7 +35,7 @@ public class CuponDescuentoController {
         return cuponDescuentoService.saveCuponDescuento(cuponDescuento);
     }
     //buscar
-    @GetMapping("{id_cupon_descuento]")
+    @GetMapping("{id_cupon_descuento}")
     public CuponDescuento buscarCuponDescuento(@PathVariable int id_cupon_descuento){
         return cuponDescuentoService.getCuponDescuentoById(id_cupon_descuento);
     }

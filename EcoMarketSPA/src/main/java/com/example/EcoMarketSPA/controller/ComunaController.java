@@ -17,7 +17,7 @@ import com.example.EcoMarketSPA.service.ComunaService;
 
 import jakarta.validation.Valid;
 
-@SuppressWarnings("unused")
+
 @RestController
 @RequestMapping("api/v1/comunas")
 public class ComunaController {
@@ -45,7 +45,7 @@ public class ComunaController {
         return comunaService.updateComuna(comuna);
     }
     //eliminar
-    @DeleteMapping("{id_comuna]")
+    @DeleteMapping("{id_comuna}")
     public String eliminarComuna(@PathVariable int id_comuna){
         if (comunaService.deleteComuna(id_comuna)==1){
             return "comuna eliminada correctamente";

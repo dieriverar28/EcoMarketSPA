@@ -4,6 +4,8 @@ package com.example.EcoMarketSPA.model;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -18,14 +20,14 @@ import lombok.NoArgsConstructor;
 
 public class Proveedor {
     @Id
-    private int id_proveedor; //pk
-    @Column(name="nombre", nullable =false)
+    private int id_proveedor;
+    @Column(name="nombre", nullable=false)
     private String nombre;
-    @Column(name="telefono", nullable =false)
+    @Column(name="telefono", nullable=false)
     private String telefono;
-    @Column(name="email", nullable =false)
+    @Column(name="email", nullable=false)
     private String email;
-    @Column(name="id_comuna", nullable =false)
-    @OneToMany(mappedBy = "comuna")
-    private int id_comuna; //fk comuna
+    @ManyToOne
+    @JoinColumn(name="id_comuna", nullable=false)
+    private Comuna comuna;
 }

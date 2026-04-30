@@ -1,6 +1,6 @@
 package com.example.EcoMarketSPA.repository;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -15,8 +15,8 @@ public interface RutaEntregaRepository extends JpaRepository<RutaEntrega, Intege
     @Query("SELECT r FROM RutaEntrega r")
     List<RutaEntrega> obtenerRutaEntrega();
 
-    @Query("SELECT r FROM RutaEntrega r WHERE r.id_ruta_entrega = :id_ruta_entrega")
-    RutaEntrega buscarRutaEntrega(int id_ruta_entrega);
+    @Query("SELECT r FROM RutaEntrega r WHERE r.id_ruta = :id_ruta")
+    RutaEntrega buscarRutaEntrega(int id_ruta);
 
 }
 

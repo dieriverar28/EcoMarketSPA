@@ -1,6 +1,6 @@
 package com.example.EcoMarketSPA.repository;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -13,7 +13,7 @@ import com.example.EcoMarketSPA.model.Boleta;
 @Repository
 public interface BoletaRepository extends JpaRepository<Boleta, Integer> {
     
- @Query("SELECT b FROM Boleta b")
+    @Query("SELECT b FROM Boleta b")
     List<Boleta> obtenerBoletas();
 
     @Query("SELECT b FROM Boleta b WHERE b.id_boleta = :id_boleta")
